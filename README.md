@@ -61,6 +61,7 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+  When an inner function reaches into an outer function to use a value that is declared in the outer function.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -82,9 +83,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+  In the console log within the inner function. The inner function uses the variable name which isn't defined within that function but in the parent function.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  The name is always the same but the newRoll will change every time.
 c. What is the lexical scope of `newRoll`? 
-
+  It is the inner function that is being returned.
 
 ### Task 3 - Stretch Goals
 
