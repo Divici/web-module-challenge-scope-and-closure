@@ -28,11 +28,13 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+    counter1 is using closure while counter 2 is updating a global variable.
   2. Which of the two uses a closure? How can you tell?
+    counter1 is using closure because it is using a variable that is defined in the outer function.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     counter1 would be better if there were multiple things that needed to be counted. Counter2 would be useful if you later needed to update thew count outside of that function.
 */
 
 // counter1 code
@@ -62,8 +64,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random()*3);
 }
 
 
@@ -81,9 +83,22 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(randomcb, innings){
+  let home=0;
+  let away=0;
+
+  for(let i=0;i<innings;i++){
+    home += randomcb();
+    away += randomcb();
+  }
+
+  return {
+    Home: home,
+    Away: away
+  }
 }
+
+console.log(finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
